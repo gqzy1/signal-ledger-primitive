@@ -21,4 +21,4 @@ This measures the meaning of an announcement, not actual network uptime. The sem
 3. https://github.com/gqzy1/signal-ledger-primitive/blob/main/TECHNICAL.md
 4. https://explorer-studio.genlayer.com/tx/0xad010dbb93a50af9674658311f8f100aca36022e596c6149bcd7daa5fc2bb4b8
 
-Use these Repository A evidence URLs for the Intelligent Contracts entry. Projects has separate Repository B evidence URLs. The canonical contract link may be shared. This file is a prepared submission draft; no Portal entry has been sent.
+These links document the contract implementation, independent consensus mechanism and completed onchain acceptance. The Projects repository provides product-specific evidence separately. The canonical deployed contract address is shared by both submissions. Portal submission status is not inferred from this repository.

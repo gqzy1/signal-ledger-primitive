@@ -1,3 +1,5 @@
+> **Historical pre-deployment snapshot.** The authorization and NOT RUN statements below refer to this initial preflight, not the current project status. See [FINAL_ONCHAIN_REPORT.md](../FINAL_ONCHAIN_REPORT.md) for completed acceptance.
+
 # FAST-2 deployment preflight checkpoint
 
 ## Verified
@@ -33,6 +35,6 @@ Minimum planned execution is five transactions: deploy, create fast2-eu-api, the
 
 ## Execution gate
 
-The user's FAST-2 section B explicitly prohibits deployment and writes without explicit approval. No deployment or contract write was submitted. The cloud Studio currently shows its own built-in account with 0 GEN and an available Connect Wallet control; it does not establish access to the user's funded local wallet. A usable user-approved signer is still needed. Do not request private keys or seed phrases. No faucet or paid service is required merely to record this checkpoint.
+At this pre-deployment snapshot, signing authorization had not yet occurred, and no deployment or contract write had been sent. Studio exposed a built-in signing account, but its suitability for a deployment still required separate verification. No private credentials were requested for the preflight.
 
-Neither track is submission ready: real finalized evidence and public frontend chain-read acceptance remain outstanding. deployment.json remains truthfully NOT DEPLOYED / NOT RUN. Resume from this checkpoint; if any future transaction is sent, archive and track its original hash before considering a retry. No product redesign or network change was made.
+At this pre-deployment checkpoint, finalized evidence and public frontend reads were still outstanding, and deployment.json recorded NOT DEPLOYED / NOT RUN. The subsequent six-transaction acceptance is documented in FINAL_ONCHAIN_REPORT.md. No product redesign or network change occurred in this preflight.

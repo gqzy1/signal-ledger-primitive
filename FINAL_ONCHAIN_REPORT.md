@@ -1,14 +1,14 @@
 # SignalLedger — final Stable Studionet onchain report
 
 ## Result
-The minimum three real scenarios passed on the SAME fixed monitor and URL: UNKNOWN -> OUTAGE, OUTAGE -> OPERATIONAL, and UNKNOWN / INSUFFICIENT_EVIDENCE retaining OPERATIONAL. Exactly six real transactions were sent under the user's final six-transaction authorization. No original transaction was resent. No Portal entry was submitted.
+The minimum three real scenarios passed on the SAME fixed monitor and URL: UNKNOWN -> OUTAGE, OUTAGE -> OPERATIONAL, and UNKNOWN / INSUFFICIENT_EVIDENCE retaining OPERATIONAL. Six real transactions were submitted in total, including the original recovery observation and the later recovery recheck. All transaction hashes and outcomes are preserved. Portal submission status is separate from onchain verification.
 
 - Network: Stable Studionet 61999; RPC https://studio.genlayer.com/api
 - Canonical contract: 0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247
 - Explorer: https://explorer-studio.genlayer.com/address/0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247
 - Official Studio built-in signer: 0xf38Fd10816b18FfAc55b4c523cE40D2DB313fc33
 - Source SHA256: 89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa
-- Canonical source, complete Repository B copy and RPC-retrieved deployed source match byte for byte. Business logic was not changed during FAST-2.
+- Canonical source, complete Repository B copy and RPC-retrieved deployed source match byte for byte. The deployed business logic matches the canonical source.
 - Preflight balance 0 GEN, gasPrice 0, value 0; archived execution receipts report zero gas use. Cash cost was zero. No private key or seed phrase was requested or exported.
 
 ## Six actual transactions

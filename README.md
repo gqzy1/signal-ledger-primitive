@@ -30,7 +30,7 @@ States: `UNKNOWN`, `OPERATIONAL`, `DEGRADED`, `OUTAGE`, `MAINTENANCE`. No arbitr
 - Contract runner: GenVM `v0.2.16`, pinned `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`.
 - JS integration: `genlayer-js@1.1.8`; direct tests: `genlayer-test@0.29.2`.
 - Deployment and real semantic consensus: **PASS**; six FINALIZED / MAJORITY_AGREE / SUCCESS transactions. Official Studio built-in signing: **PASS**; product extension-wallet write E2E: **NOT RUN**. See [final onchain report](FINAL_ONCHAIN_REPORT.md).
-- Stable RPC schema generation passed before deployment. [CHECKPOINT.md](CHECKPOINT.md) preserves the historical FAST-1 baseline; the final onchain report is the current acceptance record.
+- Stable RPC schema generation passed. [FINAL_ONCHAIN_REPORT.md](FINAL_ONCHAIN_REPORT.md) is the current deployment and consensus record; [CHECKPOINT.md](CHECKPOINT.md) documents the initial pre-deployment test baseline.
 
 ## Test
 
@@ -57,4 +57,4 @@ MIT licensed.
 
 ## Verified Stable Studionet deployment
 
-Contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Six real finalized transactions establish OUTAGE, recovery to OPERATIONAL and UNKNOWN retention on the same monitor. The first recovery attempt observed an old cached source; its historical failure remains archived. See [final onchain report](FINAL_ONCHAIN_REPORT.md), [raw evidence](evidence/fast2/), and [Intelligent Contracts submission draft](SUBMISSION_INTELLIGENT_CONTRACTS.md). Official source SHA256 is unchanged. Portal submission has not been performed.
+Contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Six real finalized transactions establish OUTAGE, recovery to OPERATIONAL and UNKNOWN retention on the same monitor. The first recovery attempt observed an old cached source; its historical failure remains archived. See [final onchain report](FINAL_ONCHAIN_REPORT.md), [raw evidence](evidence/fast2/), and [Intelligent Contracts submission information](SUBMISSION_INTELLIGENT_CONTRACTS.md). Official source SHA256 is unchanged. Portal submission has not been performed.

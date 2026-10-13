@@ -1,3 +1,5 @@
+> **Historical development checkpoint (2026-10-13).** This file records the initial pre-deployment test status. For current deployment and consensus acceptance, see [FINAL_ONCHAIN_REPORT.md](FINAL_ONCHAIN_REPORT.md).
+
 # FAST-1 checkpoint — 2026-10-13
 
 | Check actually executed | Result |
