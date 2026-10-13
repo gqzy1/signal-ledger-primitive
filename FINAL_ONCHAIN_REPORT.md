@@ -55,4 +55,4 @@ The evidence directory contains a machine-readable ONCHAIN_EVIDENCE_INDEX.json, 
 
 Raw receipts include real leader model configuration, nondeterministic outputs, independent validator votes and execution results, including disagreements/timeouts. Some nodes did not agree; the resulting majority did. The evidence is a bounded controlled acceptance, not a claim about arbitrary announcement accuracy.
 
-Contract baseline CI: 42 tests PASS. Frontend: 31 tests after the actual-RPC lowercase-vote compatibility regression. All code and MIT licenses required for both tracks are included. Product browser-wallet coverage and public-site verification are recorded separately in Repository B's PRODUCT_ACCEPTANCE_REPORT.md.
+Contract baseline CI: 42 tests PASS. Frontend: 34 tests after actual-RPC lowercase-vote and mixed leader/validator receipt compatibility regressions. All code and MIT licenses required for both tracks are included. Product browser-wallet coverage and public-site verification are recorded separately in Repository B's PRODUCT_ACCEPTANCE_REPORT.md.
