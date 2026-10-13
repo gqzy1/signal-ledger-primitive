@@ -29,8 +29,8 @@ States: `UNKNOWN`, `OPERATIONAL`, `DEGRADED`, `OUTAGE`, `MAINTENANCE`. No arbitr
 
 - Contract runner: GenVM `v0.2.16`, pinned `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`.
 - JS integration: `genlayer-js@1.1.8`; direct tests: `genlayer-test@0.29.2`.
-- Deployment: **NOT DEPLOYED**. Live LLM consensus and wallet tests: **NOT RUN**.
-- Stable RPC schema generation passed without deployment or transactions. See [CHECKPOINT.md](CHECKPOINT.md).
+- Deployment and real semantic consensus: **PASS**; six FINALIZED / MAJORITY_AGREE / SUCCESS transactions. Official Studio built-in signing: **PASS**; product extension-wallet write E2E: **NOT RUN**. See [final onchain report](FINAL_ONCHAIN_REPORT.md).
+- Stable RPC schema generation passed before deployment. [CHECKPOINT.md](CHECKPOINT.md) preserves the historical FAST-1 baseline; the final onchain report is the current acceptance record.
 
 ## Test
 
