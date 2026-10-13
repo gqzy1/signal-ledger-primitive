@@ -1,0 +1,76 @@
+{
+  "ctor": {
+    "params": [],
+    "kwparams": {}
+  },
+  "methods": {
+    "check": {
+      "params": [
+        [
+          "monitor_id",
+          "string"
+        ],
+        [
+          "expected_revision",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "any",
+      "payable": false
+    },
+    "create_monitor": {
+      "params": [
+        [
+          "monitor_id",
+          "string"
+        ],
+        [
+          "scope",
+          "string"
+        ],
+        [
+          "url",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "any",
+      "payable": false
+    },
+    "get_count": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "int"
+    },
+    "get_monitor": {
+      "params": [
+        [
+          "monitor_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_record": {
+      "params": [
+        [
+          "monitor_id",
+          "string"
+        ],
+        [
+          "revision",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    }
+  }
+}

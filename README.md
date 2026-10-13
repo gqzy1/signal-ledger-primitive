@@ -1,2 +1,56 @@
-# signal-ledger-primitive
-Scope-bound semantic service announcement transitions with independent GenLayer validators. Stable Studionet only.
+# SignalLedger Primitive
+
+A reusable GenLayer Intelligent Contract that converts **scope-bound natural-language service announcements** into a guarded state history. The state describes what a selected source announces, not measured network uptime.
+
+A service can return HTTP 200 while its announcement describes a regional outage. A different component can be down while the target scope is healthy. SignalLedger independently interprets that distinction and prevents incomplete evidence from manufacturing a recovery.
+
+## Mechanism
+
+1. An owner registers an immutable monitor ID, exact service/component/region and public source URL.
+2. The leader retrieves the announcement and classifies its latest dated, scoped update.
+3. Each validator retrieves the source independently and runs its own LLM classification. The status and update time must agree; the leader's excerpt must appear in the validator's source. The complete source digest must match, conservatively rejecting source drift.
+4. Only the accepted decision reaches deterministic storage. Older updates and contradictory same-time updates revert. UNKNOWN records insufficient evidence and preserves the last accepted state.
+
+States: `UNKNOWN`, `OPERATIONAL`, `DEGRADED`, `OUTAGE`, `MAINTENANCE`. No arbitrary user-supplied status setter exists.
+
+## API
+
+| Method | Purpose |
+|---|---|
+| `create_monitor(id, scope, url)` | Create immutable, owner-bound scope and source |
+| `check(id, expected_revision)` | Owner requests independent semantic consensus |
+| `get_monitor(id)` | JSON monitor state and freshness metadata |
+| `get_record(id, revision)` | JSON observation, state transition, source excerpt and digest |
+| `get_count()` | Total monitors |
+
+## Network and status
+
+**Stable Studionet only:** chain `61999`, RPC `https://studio.genlayer.com/api`.
+
+- Contract runner: GenVM `v0.2.16`, pinned `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`.
+- JS integration: `genlayer-js@1.1.8`; direct tests: `genlayer-test@0.29.2`.
+- Deployment: **NOT DEPLOYED**. Live LLM consensus and wallet tests: **NOT RUN**.
+- Stable RPC schema generation passed without deployment or transactions. See [CHECKPOINT.md](CHECKPOINT.md).
+
+## Test
+
+Python 3.12:
+
+```bash
+pip install -r requirements-dev.txt
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest
+```
+
+The direct runner downloads official GenVM v0.2.16 SDK artifacts. It uses in-memory storage and explicit web/LLM test responses, **not a Localnet node**. Validator tests invoke the actual captured validator with independent and malicious inputs. These tests do not prove real model accuracy or real network consensus.
+
+## Boundaries
+
+- Up to 128 monitors, 256 observations per monitor; 60 seconds between checks; 7-day announcement freshness limit; 24,000-character source limit. Create a new monitor at capacity; old history remains readable.
+- Owner-selected source is immutable but not certified official. DNS/redirect safety ultimately depends on the GenLayer web service. Public DNS syntax checks are not a full SSRF firewall.
+- Unavailable, oversized, malformed or stale evidence fails closed. Time-varying pages may prevent agreement. Prefer concise announcement pages with explicit UTC dates.
+- Manual, faucet-funded checks; no scheduler, paid API, backend, payouts, uptime SLA or source-authenticity claims.
+- Prompt injection is mitigated by separating data, strict output validation and independent assessment; it is not proven impossible.
+
+[Technical notes](TECHNICAL.md) · [Product repository](https://github.com/gqzy1/signalledger-genlayer)
+
+MIT licensed.
