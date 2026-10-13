@@ -19,7 +19,7 @@ All four below are FINALIZED, last_round.result 6 (MAJORITY_AGREE), leader execu
 The IDLE validators are recorded honestly; the four transactions reached majority agreement, not unanimous agreement except deployment. Raw receipts preserve validator errors and model configurations.
 
 Explorer address: https://explorer-studio.genlayer.com/address/0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247
-Explorer transaction URLs use https://explorer-studio.genlayer.com/transactions/ followed by each complete hash above.
+Explorer transaction URLs use https://explorer-studio.genlayer.com/tx/ followed by each complete hash above.
 
 ## Recovery failure and source evidence
 
