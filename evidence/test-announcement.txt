@@ -1,0 +1,9 @@
+SignalLedger acceptance fixture — SYNTHETIC TEST DATA
+This bulletin describes a fictional test service, not a real provider.
+
+Service scope: SignalLedger Test Service / EU API
+Updated at: 2026-10-13T05:40:00Z
+Current status: OUTAGE
+SignalLedger Test Service / EU API is currently unavailable. All EU API requests fail. The outage is ongoing and has not been resolved.
+
+This page will be updated only between finalized acceptance checks. During each consensus execution its content must remain unchanged.
