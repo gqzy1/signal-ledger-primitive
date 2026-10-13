@@ -54,3 +54,7 @@ The direct runner downloads official GenVM v0.2.16 SDK artifacts. It uses in-mem
 [Technical notes](TECHNICAL.md) · [Product repository](https://github.com/gqzy1/signalledger-genlayer)
 
 MIT licensed.
+
+## Live Stable Studionet checkpoint
+
+Deployed contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Deployment, monitor creation and OUTAGE passed; recovery acceptance FAILED because the real check retrieved the prior outage source. UNKNOWN retention is NOT RUN. See [execution checkpoint](evidence/FAST2_EXECUTION_CHECKPOINT.md) and [raw evidence](evidence/fast2/). This is incomplete acceptance, not submission-ready.

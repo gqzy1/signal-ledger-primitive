@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/gqzy1/signal-ledger-primitive/main/evidence/test-announcement.txt",
+  "httpStatus": 200,
+  "headers": {
+    "Cache-Control": "max-age=300",
+    "Content-Type": "text/plain; charset=utf-8",
+    "ETag": "W/\"496e66ce4ec7fb1a5232da3bcdf4d36a6cf6f3cab1732e7b419cc4ee94e408d8\"",
+    "Date": "Tue, 13 Oct 2026 06:01:58 GMT",
+    "X-Cache": "HIT",
+    "X-Cache-Hits": "0"
+  },
+  "content": "SignalLedger acceptance fixture \u2014 SYNTHETIC TEST DATA\nThis bulletin describes a fictional test service, not a real provider.\n\nService scope: SignalLedger Test Service / EU API\nUpdated at: 2026-10-13T05:58:00Z\nCurrent status: OPERATIONAL\nSignalLedger Test Service / EU API has fully recovered. All EU API requests are operating normally. The earlier outage is resolved and normal operation has been restored for the entire EU API service.\n\nThis page will be updated only between finalized acceptance checks. During each consensus execution its content must remain unchanged.\n"
+}

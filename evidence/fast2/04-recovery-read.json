@@ -1,0 +1,26 @@
+{
+  "monitor": {
+    "checks": 2,
+    "id": "fast2-eu-api",
+    "last_checked": "2026-10-13T05:59:23Z",
+    "last_event": "2026-10-13T05:40:00Z",
+    "owner": "0xf38Fd10816b18FfAc55b4c523cE40D2DB313fc33",
+    "revision": 2,
+    "scope": "SignalLedger Test Service / EU API",
+    "state": "OUTAGE",
+    "url": "https://raw.githubusercontent.com/gqzy1/signal-ledger-primitive/main/evidence/test-announcement.txt"
+  },
+  "record": {
+    "after": "OUTAGE",
+    "before": "OUTAGE",
+    "checked_at": "2026-10-13T05:59:23Z",
+    "disposition": "CONFIRMED",
+    "quote": "SignalLedger Test Service / EU API is currently unavailable. All EU API requests fail. The outage is ongoing and has not been resolved.",
+    "revision": 2,
+    "scope": "SignalLedger Test Service / EU API",
+    "signal": "OUTAGE",
+    "source_sha256": "36e02e752ee10bfc85c04fd4b6cfa92f7061f4dab3fb133c72dbe15ac65c741a",
+    "updated_at": "2026-10-13T05:40:00Z",
+    "url": "https://raw.githubusercontent.com/gqzy1/signal-ledger-primitive/main/evidence/test-announcement.txt"
+  }
+}
