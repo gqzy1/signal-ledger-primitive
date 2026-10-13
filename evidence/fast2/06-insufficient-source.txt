@@ -1,0 +1,9 @@
+SignalLedger acceptance fixture — SYNTHETIC TEST DATA
+This bulletin describes a fictional test service, not a real provider.
+
+Service scope: SignalLedger Test Service / US Dashboard
+Updated at: 2026-10-13T06:26:00Z
+Current status: OUTAGE
+SignalLedger Test Service / US Dashboard is currently unavailable. This bulletin applies exclusively to the US Dashboard component.
+
+No other component or region is covered by this bulletin.

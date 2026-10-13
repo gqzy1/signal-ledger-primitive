@@ -55,6 +55,6 @@ The direct runner downloads official GenVM v0.2.16 SDK artifacts. It uses in-mem
 
 MIT licensed.
 
-## Live Stable Studionet checkpoint
+## Verified Stable Studionet deployment
 
-Deployed contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Deployment, monitor creation and OUTAGE passed; recovery acceptance FAILED because the real check retrieved the prior outage source. UNKNOWN retention is NOT RUN. See [execution checkpoint](evidence/FAST2_EXECUTION_CHECKPOINT.md) and [raw evidence](evidence/fast2/). This is incomplete acceptance, not submission-ready.
+Contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Six real finalized transactions establish OUTAGE, recovery to OPERATIONAL and UNKNOWN retention on the same monitor. The first recovery attempt observed an old cached source; its historical failure remains archived. See [final onchain report](FINAL_ONCHAIN_REPORT.md), [raw evidence](evidence/fast2/), and [Intelligent Contracts submission draft](SUBMISSION_INTELLIGENT_CONTRACTS.md). Official source SHA256 is unchanged. Portal submission has not been performed.

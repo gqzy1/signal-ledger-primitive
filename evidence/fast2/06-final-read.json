@@ -1,0 +1,26 @@
+{
+  "monitor": {
+    "checks": 4,
+    "id": "fast2-eu-api",
+    "last_checked": "2026-10-13T06:34:42Z",
+    "last_event": "2026-10-13T05:58:00Z",
+    "owner": "0xf38Fd10816b18FfAc55b4c523cE40D2DB313fc33",
+    "revision": 4,
+    "scope": "SignalLedger Test Service / EU API",
+    "state": "OPERATIONAL",
+    "url": "https://raw.githubusercontent.com/gqzy1/signal-ledger-primitive/main/evidence/test-announcement.txt"
+  },
+  "record": {
+    "after": "OPERATIONAL",
+    "before": "OPERATIONAL",
+    "checked_at": "2026-10-13T06:34:42Z",
+    "disposition": "INSUFFICIENT_EVIDENCE",
+    "quote": "",
+    "revision": 4,
+    "scope": "SignalLedger Test Service / EU API",
+    "signal": "UNKNOWN",
+    "source_sha256": "f57a6c61a71cc544894d5628b20cb1760719c2b8353db46db9c1eed7c5f3a880",
+    "updated_at": "",
+    "url": "https://raw.githubusercontent.com/gqzy1/signal-ledger-primitive/main/evidence/test-announcement.txt"
+  }
+}

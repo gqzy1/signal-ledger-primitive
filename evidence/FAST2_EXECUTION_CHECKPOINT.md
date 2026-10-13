@@ -1,3 +1,5 @@
+> Historical four-transaction checkpoint. Superseded by the final onchain report; the recovery recheck and insufficient-evidence scenario subsequently passed.
+
 # FAST-2 execution checkpoint — four transactions; recovery blocked
 
 Network: Stable Studionet 61999, https://studio.genlayer.com/api. Official Studio built-in signer: 0xf38Fd10816b18FfAc55b4c523cE40D2DB313fc33. Browser/UI signing was used; no private key or seed was requested or exported. Preflight balance was 0 GEN, gasPrice 0, value 0; no paid service or paid funds were used.
