@@ -182,7 +182,7 @@ class SignalLedger(gl.Contract):
         record = {**decision, 'before': before, 'after': item['state'], 'disposition': disposition,
                   'revision': item['revision'], 'checked_at': checked_at, 'url': url, 'scope': scope}
         self.records[key + ':' + str(item['revision'])] = json.dumps(record, sort_keys=True)
-        self.monitors[monitor_id] = json.dumps(item, sort_keys=True)
+        self.monitors[key] = json.dumps(item, sort_keys=True)
 
     def _monitor(self, monitor_id: str):
         if monitor_id not in self.monitors:
