@@ -1,3 +1,5 @@
+> **Steward remediation candidate — NOT DEPLOYED.** This branch contains the proposed owner-scoped quota fix. The contract address and onchain evidence below describe the previous deployment. Do not resubmit until the candidate is deployed and its source hash is verified.
+
 # SignalLedger Primitive
 
 A reusable GenLayer Intelligent Contract that converts **scope-bound natural-language service announcements** into a guarded state history. The state describes what a selected source announces, not measured network uptime.
