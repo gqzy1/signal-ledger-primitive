@@ -12,7 +12,11 @@ A deterministic keyword classifier cannot reliably resolve negation, component a
 
 `run_nondet_unsafe(leader, validator)` captures only plain URL/scope/time values. Validators reject exceptions, malformed output, fabricated excerpts, source digest mismatch, status disagreement and update-time disagreement. Excerpt wording may differ between models, but every leader excerpt must be grounded in the independently fetched page. Exact digest equality deliberately favors failure over silently mixing source versions.
 
-The model must return only signal, canonical UTC update time and a literal excerpt. Structured decisions are normalized and bounded. The deterministic path handles permissions, revision concurrency, chronology, cooldown and capacities before updating both the record and monitor.
+The model must return only signal, canonical UTC update time and a literal excerpt. Structured decisions are normalized and bounded. The deterministic path handles permissions, revision concurrency, chronology, cooldown, per-owner creation quotas and bounded history before updating both the record and monitor.
+
+## Resource isolation and ownership
+
+Monitor storage keys are namespaced as `lowercase-owner-address::monitor-id`. Two owners may use the same human-readable ID without reserving it globally. Each address may create at most eight monitors. The old shared 128-monitor ceiling is removed; `get_count()` is an aggregate informational count, and `get_owner_count(owner)` exposes quota usage for a supplied address. A per-address quota prevents one address from consuming another address's allowance, but does not fully prevent a Sybil operator from using multiple addresses. No administrator allowlist or paid gate is introduced.
 
 | Evidence | Deterministic outcome |
 |---|---|

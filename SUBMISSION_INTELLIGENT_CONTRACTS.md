@@ -1,18 +1,20 @@
+> **Steward remediation candidate — NOT DEPLOYED.** Do not resubmit this draft until the updated source has been deployed and the deployed source hash and transaction evidence have been refreshed.
+
 # Intelligent Contracts — SignalLedger Primitive
 
 ## Name
 SignalLedger — Scope-Bound Service Announcement Ledger
 
 ## Description
-A reusable Intelligent Contract that interprets explicitly dated service announcements for one immutable component/region scope and stores an evidence-grounded transition history. A leader classifies the source and independent validators re-fetch, reclassify and verify its exact excerpt and rendered-source digest. UNKNOWN records an insufficient-evidence observation while retaining the last accepted state. Deterministic guards enforce ownership, revision concurrency, chronology, cooldown and bounded history.
+A reusable Intelligent Contract that interprets explicitly dated service announcements for one immutable component/region scope and stores an evidence-grounded transition history. A leader classifies the source and independent validators re-fetch, reclassify and verify its exact excerpt and rendered-source digest. UNKNOWN records an insufficient-evidence observation while retaining the last accepted state. Deterministic guards enforce owner-scoped IDs, per-owner creation quotas, revision concurrency, chronology, cooldown and bounded history.
 
 This measures the meaning of an announcement, not actual network uptime. The semantic task includes component applicability, negation, recovery and planned versus ongoing maintenance; keyword or HTTP-success checks cannot supply the same acceptance boundary.
 
 ## Network and contract
 - Stable Studionet, Chain ID 61999, RPC https://studio.genlayer.com/api
 - Contract: https://explorer-studio.genlayer.com/address/0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247
-- Empty constructor; 2 write and 3 view methods.
-- Source SHA256: 89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa
+- Empty constructor; 2 write and 4 view methods.
+- The previous deployed source hash and address below describe the pre-remediation deployment; the candidate source must be deployed and re-verified before final submission.
 - MIT License. No paid infrastructure or private-key disclosure is required.
 
 ## Evidence and supplementary URLs for this track

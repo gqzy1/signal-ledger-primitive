@@ -1,3 +1,5 @@
+> **Steward remediation candidate — NOT DEPLOYED.** This branch contains the proposed owner-scoped quota fix. The contract address and onchain evidence below describe the previous deployment. Do not resubmit until the candidate is deployed and its source hash is verified.
+
 # SignalLedger Primitive
 
 A reusable GenLayer Intelligent Contract that converts **scope-bound natural-language service announcements** into a guarded state history. The state describes what a selected source announces, not measured network uptime.
@@ -19,9 +21,10 @@ States: `UNKNOWN`, `OPERATIONAL`, `DEGRADED`, `OUTAGE`, `MAINTENANCE`. No arbitr
 |---|---|
 | `create_monitor(id, scope, url)` | Create immutable, owner-bound scope and source |
 | `check(id, expected_revision)` | Owner requests independent semantic consensus |
-| `get_monitor(id)` | JSON monitor state and freshness metadata |
-| `get_record(id, revision)` | JSON observation, state transition, source excerpt and digest |
-| `get_count()` | Total monitors |
+| `get_monitor(owner::id)` | JSON monitor state; public reference is owner-address plus `::` plus ID |
+| `get_record(owner::id, revision)` | JSON observation, transition, excerpt and digest |
+| `get_count()` | Aggregate count across all owners; informational, not a shared cap |
+| `get_owner_count(owner)` | Number of monitors owned by one address |
 
 ## Network and status
 
@@ -45,7 +48,7 @@ The direct runner downloads official GenVM v0.2.16 SDK artifacts. It uses in-mem
 
 ## Boundaries
 
-- Up to 128 monitors, 256 observations per monitor; 60 seconds between checks; 7-day announcement freshness limit; 24,000-character source limit. Create a new monitor at capacity; old history remains readable.
+- Up to 8 monitors per owner, with IDs namespaced by lowercase owner address; 256 observations per monitor; 60 seconds between checks; 7-day announcement freshness limit; 24,000-character source limit. There is no shared 128-monitor cap. Per-address quotas isolate ordinary users but do not eliminate Sybil activity across multiple addresses; network-level resource costs still apply.
 - Owner-selected source is immutable but not certified official. DNS/redirect safety ultimately depends on the GenLayer web service. Public DNS syntax checks are not a full SSRF firewall.
 - Unavailable, oversized, malformed or stale evidence fails closed. Time-varying pages may prevent agreement. Prefer concise announcement pages with explicit UTC dates.
 - Manual, faucet-funded checks; no scheduler, paid API, backend, payouts, uptime SLA or source-authenticity claims.

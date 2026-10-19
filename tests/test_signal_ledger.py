@@ -32,8 +32,11 @@ def advance(vm, stamp):
 def setup(c):
     c.create_monitor('payment-eu','Payment API in Europe',URL)
 
-def read(c):
-    return json.loads(c.get_monitor('payment-eu'))
+def monitor_ref(owner_name, monitor_id):
+    return f"{str(create_address(owner_name)).lower()}::{monitor_id}"
+
+def read(c, owner_name='owner', monitor_id='payment-eu'):
+    return json.loads(c.get_monitor(monitor_ref(owner_name, monitor_id)))
 
 def test_create_and_duplicate(env):
     vm,c=env;setup(c)
@@ -72,7 +75,7 @@ def test_unknown_preserves_outage(env):
     vm,c=env;setup(c);mock(vm);c.check('payment-eu',0)
     advance(vm, '2026-10-13T05:12:00Z');mock(vm,'UNKNOWN','','');c.check('payment-eu',1)
     assert read(c)['state']=='OUTAGE'
-    rec=json.loads(c.get_record('payment-eu',2))
+    rec=json.loads(c.get_record(monitor_ref('owner', 'payment-eu'),2))
     assert rec['signal']=='UNKNOWN' and rec['disposition']=='INSUFFICIENT_EVIDENCE'
     assert vm.run_validator()
 
@@ -83,7 +86,7 @@ def test_recovery_and_revision(env):
     mock(vm,'OPERATIONAL','2026-10-13T05:11:00Z','Payment API in Europe is fully restored.',page)
     c.check('payment-eu',1)
     assert read(c)['state']=='OPERATIONAL' and vm.run_validator()
-    assert json.loads(c.get_record('payment-eu',2))['before']=='OUTAGE'
+    assert json.loads(c.get_record(monitor_ref('owner', 'payment-eu'),2))['before']=='OUTAGE'
     with pytest.raises(Exception): c.check('payment-eu',1)
 
 def test_permissions_and_cooldown(env):
@@ -117,26 +120,48 @@ def test_backdated_and_same_time_conflict(env):
 
 def test_unknown_reads(env):
     vm,c=env
-    with pytest.raises(Exception): c.get_monitor('missing')
-    with pytest.raises(Exception): c.get_record('missing',1)
+    with pytest.raises(Exception): c.get_monitor(monitor_ref('owner', 'missing'))
+    with pytest.raises(Exception): c.get_record(monitor_ref('owner', 'missing'),1)
 
 @pytest.mark.parametrize('signal', ['OPERATIONAL','DEGRADED','MAINTENANCE'])
 def test_other_states_and_confirmation(env,signal):
     vm,c=env;setup(c);mock(vm,signal);c.check('payment-eu',0)
     assert read(c)['state']==signal and vm.run_validator()
     advance(vm,'2026-10-13T05:12:00Z');c.check('payment-eu',1)
-    assert json.loads(c.get_record('payment-eu',2))['disposition']=='CONFIRMED'
+    assert json.loads(c.get_record(monitor_ref('owner', 'payment-eu'),2))['disposition']=='CONFIRMED'
 
 def test_validator_rejects_hash_forgery(env):
     vm,c=env;setup(c);mock(vm);c.check('payment-eu',0)
     proposed=dict(vm._captured_validators[-1][0]);proposed['source_sha256']='a'*64
     assert vm.run_validator(leader_result=proposed) is False
 
-def test_monitor_capacity(env):
+def test_owner_quota_and_namespaced_ids(env):
     vm,c=env
-    for n in range(128): c.create_monitor('m'+str(n),'Service',URL)
-    with pytest.raises(Exception,match='capacity'): c.create_monitor('overflow','Service',URL)
-    assert c.get_count()==128
+    for n in range(8): c.create_monitor(f'm{n}', 'Service', URL)
+    assert c.get_count() == 8
+    assert c.get_owner_count(str(create_address('owner'))) == 8
+    with pytest.raises(Exception, match='quota'):
+        c.create_monitor('overflow', 'Service', URL)
+    assert c.get_count() == 8
+    vm.sender = create_address('other')
+    c.create_monitor('m0', 'Other service', URL)
+    assert c.get_count() == 9
+    assert read(c, 'owner', 'm0')['scope'] == 'Service'
+    assert read(c, 'other', 'm0')['scope'] == 'Other service'
+    assert read(c, 'other', 'm0')['owner'] == str(create_address('other')).lower()
+    assert c.get_owner_count(str(create_address('other'))) == 1
+
+def test_no_shared_128_monitor_cap(env):
+    vm,c=env
+    for owner_index in range(16):
+        vm.sender = create_address(f'owner{owner_index}')
+        for n in range(8):
+            c.create_monitor(f'm{n}', 'Service', URL)
+    assert c.get_count() == 128
+    vm.sender = create_address('owner16')
+    c.create_monitor('m0', 'Service', URL)
+    assert c.get_count() == 129
+    assert c.get_owner_count(str(create_address('owner16'))) == 1
 
 def test_history_capacity(env):
     vm,c=env;setup(c);mock(vm,'UNKNOWN','','')
