@@ -31,7 +31,7 @@ UNKNOWN retaining a state does not make that state fresh: consumers must inspect
 
 ## Verification and limitations
 
-Direct mode executes the production storage SDK but supplies explicit test web/LLM responses. It normally captures a leader result before running a validator separately; a separate test installs a rejecting consensus boundary and asserts no deterministic mutation. This verifies code behavior, not network consensus. Real Stable Studionet validation is recorded in [FINAL_ONCHAIN_REPORT.md](FINAL_ONCHAIN_REPORT.md), including FINALIZED transactions, majority agreement, execution outcomes, validator evidence and finalized reads.
+Direct mode executes the production storage SDK but supplies explicit test web/LLM responses. It normally captures a leader result before running a validator separately; a separate test installs a rejecting consensus boundary and asserts no deterministic mutation. This verifies code behavior, not network consensus. Historical Stable Studionet validation for the old deployment is recorded in [FINAL_ONCHAIN_REPORT.md](FINAL_ONCHAIN_REPORT.md), including FINALIZED transactions, majority agreement, execution outcomes, validator evidence and finalized reads. [SOURCE_VERIFICATION.md](SOURCE_VERIFICATION.md) separately records the new address, manual source identity and unfinished release gates.
 
 The test package's `warp` does not refresh the SDK's message_raw datetime cache, so test helper `advance` updates that cache explicitly. Production reads transaction datetime from the pinned SDK's `gl.message_raw['datetime']`, never machine wall-clock time.
 

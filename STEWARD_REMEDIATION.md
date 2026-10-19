@@ -10,8 +10,10 @@ The original contract used globally shared monitor IDs and a global 128-monitor 
 - Remove the shared 128-monitor ceiling; `get_count()` remains an aggregate informational count.
 - Preserve owner-only checks, independent GenLayer validation, evidence digests, revision guards, chronology, cooldown, UNKNOWN retention and 256-record per-monitor history.
 
-## Verification required
-The candidate test suite covers owner ID isolation, per-owner quota enforcement, and creation beyond 128 aggregate monitors. The candidate is not deployed. The previous deployment and its original receipts remain historical evidence and do not prove this remediation. Before resubmission, deploy this exact source on Stable Studionet, verify the onchain source hash, create a fresh owner-scoped example, and record successful real consensus outcomes. Do not retry a failed write automatically.
+## Verification and release status
+The candidate test suite covers owner ID isolation, per-owner quota enforcement, and creation beyond 128 aggregate monitors. The new address `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4` is DEPLOYED_USER_REPORTED on Stable Studionet 61999. Source identity is VERIFIED through the user-performed local Chrome comparison and existing A/B byte identity; see [the exact evidence scope](SOURCE_VERIFICATION.md). The user confirmed the owner-scoped monitor at OPERATIONAL / revision 1 / checks 1 and record 1. These are not fresh cloud reads.
+
+The old deployment and its six receipts remain historical; no new deployment hash is supplied. Cloud 403/1010 has no demonstrated resolution. Final PR integration, separately authorized publication and new public read-only acceptance remain incomplete. Do not redeploy, retry a write or repeat passed tests merely to update this documentation.
 
 ## Candidate source SHA256
 `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`
