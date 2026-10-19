@@ -1,4 +1,4 @@
-> **Steward remediation candidate — NOT DEPLOYED.** This branch contains the proposed owner-scoped quota fix. The contract address and onchain evidence below describe the previous deployment. Do not resubmit until the candidate is deployed and its source hash is verified.
+> **Deployment/source update:** `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4` is DEPLOYED_USER_REPORTED; source identity is VERIFIED by local Chrome manual comparison plus the frozen A/B byte-identity chain. Cloud 403/1010 remains unresolved, and the public website is still the historical release. Integration, publication and new public acceptance remain pending. See [source verification](SOURCE_VERIFICATION.md).
 
 # SignalLedger Primitive
 
@@ -32,8 +32,9 @@ States: `UNKNOWN`, `OPERATIONAL`, `DEGRADED`, `OUTAGE`, `MAINTENANCE`. No arbitr
 
 - Contract runner: GenVM `v0.2.16`, pinned `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`.
 - JS integration: `genlayer-js@1.1.8`; direct tests: `genlayer-test@0.29.2`.
-- Deployment and real semantic consensus: **PASS**; six FINALIZED / MAJORITY_AGREE / SUCCESS transactions. Official Studio built-in signing: **PASS**; product extension-wallet write E2E: **NOT RUN**. See [final onchain report](FINAL_ONCHAIN_REPORT.md).
-- Stable RPC schema generation passed. [FINAL_ONCHAIN_REPORT.md](FINAL_ONCHAIN_REPORT.md) is the current deployment and consensus record; [CHECKPOINT.md](CHECKPOINT.md) documents the initial pre-deployment test baseline.
+- Current address: `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4`; source identity **VERIFIED (MANUAL_LOCAL_CHROME)** at candidate `65da22cdbf3faf46bd104a5ce2e3d9fa4f93c873`. This is the user-provided manual result, not a cloud RPC capture. See [evidence and limits](SOURCE_VERIFICATION.md).
+- Historical deployment/semantic consensus: six FINALIZED / MAJORITY_AGREE / SUCCESS transactions apply only to `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Historical Studio signing was PASS; product extension-wallet write E2E remains NOT RUN. See [archived onchain report](FINAL_ONCHAIN_REPORT.md).
+- Historical RPC/schema and consensus results are retained in [FINAL_ONCHAIN_REPORT.md](FINAL_ONCHAIN_REPORT.md); they do not establish current cloud access or new-deployment acceptance. [SOURCE_VERIFICATION.md](SOURCE_VERIFICATION.md) records the latest manual source evidence; [CHECKPOINT.md](CHECKPOINT.md) is the initial test baseline.
 
 ## Test
 
@@ -58,6 +59,6 @@ The direct runner downloads official GenVM v0.2.16 SDK artifacts. It uses in-mem
 
 MIT licensed.
 
-## Verified Stable Studionet deployment
+## Historical Stable Studionet deployment
 
-Contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Six real finalized transactions establish OUTAGE, recovery to OPERATIONAL and UNKNOWN retention on the same monitor. The first recovery attempt observed an old cached source; its historical failure remains archived. See [final onchain report](FINAL_ONCHAIN_REPORT.md), [raw evidence](evidence/fast2/), and [Intelligent Contracts submission information](SUBMISSION_INTELLIGENT_CONTRACTS.md). Official source SHA256 is unchanged. Portal submission has not been performed.
+Contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Six real finalized transactions establish OUTAGE, recovery to OPERATIONAL and UNKNOWN retention on the same monitor. The first recovery attempt observed an old cached source; its historical failure remains archived. See [final onchain report](FINAL_ONCHAIN_REPORT.md), [raw evidence](evidence/fast2/), and [Intelligent Contracts submission information](SUBMISSION_INTELLIGENT_CONTRACTS.md). The archived source SHA256 belongs to this old deployment and differs from the new owner-scoped candidate. New source verification and remaining release gates are recorded separately in [SOURCE_VERIFICATION.md](SOURCE_VERIFICATION.md). Portal submission has not been performed.
